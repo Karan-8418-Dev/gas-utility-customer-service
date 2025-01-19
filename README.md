@@ -23,13 +23,13 @@ Database: MySQL
 Frontend: HTML, CSS, JavaScript
 
 📦 Setup
-Clone the repo:
-https://github.com/Karan-8418-Dev/gas-utility-customer-service.git
-cd gas-utility-customer-service
-Set up virtual environment:
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
+- Clone the repo:
+- https://github.com/Karan-8418-Dev/gas-utility-customer-service.git
+- cd gas-utility-customer-service
+- Set up virtual environment:
+- python -m venv venv
+- source venv/bin/activate  # Linux/Mac
+- venv\Scripts\activate     # Windows
 
 Install dependencies:
 pip install -r requirements.txt
@@ -47,12 +47,12 @@ python manage.py runserver
 
 🏗️ Folder Structure
 gas_utility/
-├── accounts/         # User authentication
-├── customer_portal/  # Customer features
-├── customer_support/ # Support dashboard
-├── static/           # CSS, JS, images
-├── templates/        # HTML templates
-├── media/            # Uploaded files
+ - accounts/         # User authentication
+ - customer_portal/  # Customer features
+ - customer_support/ # Support dashboard
+ - static/           # CSS, JS, images
+ - templates/        # HTML templates
+ - media/            # Uploaded files
 
 🔐 Environment Variables
 DEBUG=True/False
