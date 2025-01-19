@@ -8,12 +8,11 @@ View request history and updates
 Manage profiles and upload documents
 
 For Support:
-Manage and update tickets
-Assign staff and track status
+Manage and update Status Of Request 
 Add comments and resolve requests
 
 User Management:
-Secure login and password recovery
+Secure login
 Role-based access
 
 
@@ -47,12 +46,12 @@ python manage.py runserver
 
 🏗️ Folder Structure
 gas_utility/
-├── accounts/         # User authentication
-├── customer_portal/  # Customer features
-├── customer_support/ # Support dashboard
-├── static/           # CSS, JS, images
-├── templates/        # HTML templates
-├── media/            # Uploaded files
+ - accounts/         # User authentication
+ - customer_portal/  # Customer features
+ - customer_support/ # Support dashboard
+ - static/           # CSS, JS, images
+ - templates/        # HTML templates
+ - media/            # Uploaded files
 
 🔐 Environment Variables
 DEBUG=True/False
