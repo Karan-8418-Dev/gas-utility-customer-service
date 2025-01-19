@@ -1,0 +1,39 @@
+{% extends 'customer_portal/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        {% block extra_css %}
+            <link rel="stylesheet" href="{% static 'css/customer_portal/service_history.css' %}">
+        {% endblock %}
+</head>
+<body>
+    
+    {% block content %}
+      <div class="container">
+        <h1>Service History</h1>
+        
+        {% if service_requests %}
+          <div class="service-list">
+            {% for request in service_requests %}
+              <div class="service-card">
+                <h3>{{ request.request_type }}</h3>
+                <p><strong>Status:</strong> 
+                  <span class="status {{ request.status|lower }}">{{ request.status }}</span>
+                </p>
+                <p><strong>Date:</strong> {{ request.date }}</p>
+                <p><strong>Description:</strong> {{ request.description }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>No service history available.</p>
+        {% endif %}
+      </div>
+    {% endblock %}
+</body>
+</html>
+

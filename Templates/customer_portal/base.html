@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Portal</title>
+    <link rel="stylesheet" href="{% static 'css/customer_portal/base.css' %}">
+    {% block extra_css %}
+    {% endblock %}
+</head>
+<body>
+    <nav>
+        <ul> <li><a href="{% url 'customer_portal:homepage' %}">Home</a></li>
+            <li><a href="{% url 'customer_portal:service_request_form' %}">Service Requests</a></li>
+            <li><a href="{% url 'customer_portal:service_history' %}">Service History</a></li>
+            <li><a href="{% url 'customer_portal:profile' %}">Profile</a></li>
+          
+        </ul>
+    </nav>
+    
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

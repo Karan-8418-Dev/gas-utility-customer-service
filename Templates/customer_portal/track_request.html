@@ -1,0 +1,8 @@
+<h1>Track Service Request</h1>
+<p><strong>Name:</strong> {{ service_request.customer_name }}</p>
+<p><strong>Request Type:</strong> {{ service_request.request_type }}</p>
+<p><strong>Status:</strong> {{ service_request.status }}</p>
+<p><strong>Submitted At:</strong> {{ service_request.submitted_at }}</p>
+{% if service_request.resolved_at %}
+<p><strong>Resolved At:</strong> {{ service_request.resolved_at }}</p>
+{% endif %}

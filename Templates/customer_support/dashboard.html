@@ -1,0 +1,48 @@
+
+  {% load static %}
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/customer_support/dashboard.css' %}">
+  {% endblock %}
+  </head>
+  <body>
+    
+  </body>
+  </html>
+ 
+<h2>Support Dashboard</h2>
+<form method="GET" action="">
+    <label for="status_filter">Filter by Status:</label>
+    <select name="status_filter" id="status_filter">
+        <option value="PENDING">Pending</option>
+        <option value="IN_PROGRESS">In Progress</option>
+        <option value="RESOLVED">Resolved</option>
+        <option value="CLOSED">Closed</option>
+    </select>
+    <button type="submit">Apply Filter</button>
+</form>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Customer</th>
+        <th>Request Type</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    {% for request in service_requests %}
+    <tr>
+        <td>{{ request.id }}</td>
+        <td>{{ request.customer_name }}</td> <!-- Assuming `customer` is a foreign key to the `CustomUser` model -->
+        <td>{{ request.get_request_type_display }}</td>
+        <td>{{ request.get_status_display }}</td>
+        <td><a href="{% url 'customer_support:request_detail' request.id %}">View Details</a></td>
+
+    </tr>
+    {% endfor %}
+</table>

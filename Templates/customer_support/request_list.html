@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request List</title>
+</head>
+<body>
+    
+    <h1>All Service Requests</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Customer Name</th>
+                <th>Request Type</th>
+                <th>Status</th>
+                <th>Submitted At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+            <tr>
+                <td>{{ request.id }}</td>
+                <td>{{ request.customer_name }}</td>
+                <td>{{ request.request_type }}</td>
+                <td>{{ request.status }}</td>
+                <td>{{ request.submitted_at }}</td>
+                <td><a href="{% url 'customer_support:request_detail' request.id %}">View Details</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

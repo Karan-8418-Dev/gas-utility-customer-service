@@ -1,0 +1,42 @@
+{% extends 'customer_portal/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Request Form</title>
+   
+</head>
+<body>
+   
+    {% block content %} 
+    
+    <!-- Form -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="customer_name">Name:</label>
+        <input type="text" name="customer_name" id="customer_name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+        
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" name="phone_number" id="phone_number" required>
+        
+        <label for="request_type">Request Type:</label>
+        <!-- <input type="text" name="request_type" id="request_type" required> -->
+             <p class="select"> {{ form.request_type }} </p>
+        
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" required></textarea>
+        
+        <label for="file_attachment">File Attachment:</label>
+        <input type="file" name="file_attachment" id="file_attachment">
+        
+        <button type="submit">Submit Request</button>
+    </form>
+    
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!-- customer_portal/templates/customer_portal/view_profile.html -->
+{% extends 'customer_portal/base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  {% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/customer_portal/view_profile.css' %}">
+  {% endblock %}
+</head>
+<body>
+  
+  {% block content %}
+  <div class="container">
+    <div class="profile">
+
+      <h2>Your Profile</h2>
+      <p>Username: {{ user.username }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>Address: {{ user.address }}</p>
+      <p>Contact Number: {{ user.phone_number }}</p>
+      <button>
+        
+        <a href="{% url 'customer_portal:edit_profile' %}">Edit Profile</a>
+      </button>
+    </div>
+  </div>
+  
+  {% endblock %}
+</body>
+</html>
+

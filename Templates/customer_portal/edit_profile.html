@@ -1,0 +1,27 @@
+{% extends 'customer_portal/base.html' %}
+{% load static %}
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile</title>
+  {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/customer_portal/edit_profile.css' %}">
+{% endblock %}
+ </head>
+ <body>
+   
+   {% block content %}
+   <h2>Edit Profile</h2>
+     <form method="POST">
+       {% csrf_token %}
+       {{ form.as_p }}
+   <a href="{% url 'customer_portal:profile' %}"><button type="submit">Save Changes</button></a>
+   
+       
+     </form>
+   {% endblock %}
+ </body>
+ </html>
+

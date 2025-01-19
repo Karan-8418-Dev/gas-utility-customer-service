@@ -1,0 +1,63 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Request</title>
+    <link rel="stylesheet" href="{% static 'css/customer_support/request_update.css' %}">
+   
+</head>
+<body>
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="alert {% if message.tags == 'success' %}alert-success{% elif message.tags == 'error' %}alert-danger{% endif %} alert-dismissible">
+            {{ message }}
+            <button type="button" class="close" onclick="this.parentElement.style.display='none'">&times;</button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="req-details">
+
+        <h1>Service Request #{{ service_request.id }}</h1>
+        <p><strong>Customer Name:</strong> {{ service_request.customer_name }}</p>
+        <p><strong>Request Type:</strong> {{ service_request.request_type }}</p>
+        <p><strong>Description:</strong> {{ service_request.description }}</p>
+        <p><strong>Status:</strong> {{ service_request.status }}</p>
+        <p><strong>Submitted At:</strong> {{ service_request.submitted_at }}</p>
+    </div>
+    
+    <form method="POST" action="{% url 'customer_support:update_status' service_request.id %}">
+        {% csrf_token %}
+        <select name="status" required>
+            <option value="">Select Status</option>
+            <option value="PENDING" {% if service_request.status == 'PENDING' %}selected{% endif %}>Pending</option>
+            <option value="IN_PROGRESS" {% if service_request.status == 'IN_PROGRESS' %}selected{% endif %}>In Progress</option>
+            <option value="RESOLVED" {% if service_request.status == 'RESOLVED' %}selected{% endif %}>Resolved</option>
+            <option value="CLOSED" {% if service_request.status == 'CLOSED' %}selected{% endif %}>Closed</option>
+        </select>
+        <textarea name="resolution_notes" placeholder="Add resolution notes (optional)"></textarea>
+        <button type="submit">Update Status</button>
+
+        <div class="button-container">
+            <a href="{% url 'customer_support:dashboard' %}" class="dashboard-btn">Back to Dashboard</a>
+        </div>
+    </form>
+
+    <script>
+        // Auto-dismiss messages after 5 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                var alerts = document.querySelectorAll('.alert');
+                alerts.forEach(function(alert) {
+                    alert.style.display = 'none';
+                });
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
+
