@@ -8,12 +8,11 @@ View request history and updates
 Manage profiles and upload documents
 
 For Support:
-Manage and update tickets
-Assign staff and track status
+Manage and update Status Of Request 
 Add comments and resolve requests
 
 User Management:
-Secure login and password recovery
+Secure login
 Role-based access
 
 
